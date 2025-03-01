@@ -1,0 +1,31 @@
+{
+  "name": "ousmane-terminal",
+  "version": "1.0.0",
+  "description": "Animation du prénom OUSMANE dans le terminal",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "install-script": "npm run build && node dist/install.js",
+    "test": "npm run build && node dist/index.js"
+  },
+  "keywords": [
+    "terminal",
+    "animation"
+  ],
+  "author": "Ousmane Fall",
+  "license": "ISC",
+  "dependencies": {
+    "@types/gradient-string": "^1.1.6",
+    "chalk": "^4.1.2",
+    "delay": "^5.0.0",
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.2",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.5",
+    "@types/node": "^18.15.11",
+    "typescript": "^4.9.5"
+  }
+}
