@@ -4,11 +4,9 @@ import chalk from 'chalk';
 import ora from 'ora';
 import delay from 'delay';
 
-// Configuration des dégradés de couleurs
 const rainbowColors = gradient(['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']);
 const blueGreen = gradient(['#0000FF', '#00FFFF', '#00FF00']);
 
-// Fonction principale d'animation
 async function animateOusmane() {
   console.clear();
 

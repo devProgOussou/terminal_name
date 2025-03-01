@@ -13,10 +13,8 @@ function installStartupScript(): void {
     fs.writeFileSync(bashrcPath, '');
   }
 
-  // Lire le contenu actuel
   const bashrcContent = fs.readFileSync(bashrcPath, 'utf-8');
 
-  // Préparer le script à ajouter
   const scriptToAdd = `
 # Animation OUSMANE au démarrage du terminal WSL
 if [ -f "${scriptPath}" ]; then
@@ -24,11 +22,9 @@ if [ -f "${scriptPath}" ]; then
 fi
 `;
 
-  // Vérifier si le script est déjà présent
   if (bashrcContent.includes(scriptPath)) {
     console.log(chalk.yellow('🔄 Le script est déjà configuré dans votre .bashrc'));
   } else {
-    // Ajouter le script
     fs.appendFileSync(bashrcPath, scriptToAdd);
     console.log(chalk.green('✅ Script d\'animation OUSMANE ajouté avec succès à votre .bashrc!'));
   }
@@ -39,5 +35,4 @@ fi
   console.log(chalk.cyan('ou redémarrez votre terminal WSL'));
 }
 
-// Exécuter l'installation
 installStartupScript();
