@@ -4,23 +4,24 @@ import chalk from 'chalk';
 import ora from 'ora';
 import delay from 'delay';
 
-const rainbowColors = gradient(['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']);
-const blueGreen = gradient(['#0000FF', '#00FFFF', '#00FF00']);
+const elegantGold = gradient(['#FFD700', '#FFA500', '#FF8C00', '#DAA520', '#B8860B']);
+// const deepOcean = gradient(['#1E90FF', '#4169E1', '#0000CD', '#191970', '#000080']);
+// const purpleRoyal = gradient(['#9370DB', '#8A2BE2', '#7B68EE', '#6A5ACD', '#483D8B']);
+// const sunsetGlow = gradient(['#FF6347', '#FF4500', '#FF0000', '#DC143C', '#8B0000']);
+const emeraldTeal = gradient(['#2E8B57', '#3CB371', '#20B2AA', '#008B8B', '#008080']);
 
 async function animateOusmane() {
   console.clear();
 
-  // Spinner de chargement
   const spinner = ora({
     text: 'Préparation de votre environnement de travail...',
-    color: 'blue'
+    color: 'cyan'
   }).start();
 
   await delay(1500);
   spinner.succeed('Environnement prêt!');
   await delay(500);
 
-  // Animation lettre par lettre
   const name = 'OUSMANE';
   let displayText = '';
 
@@ -29,7 +30,7 @@ async function animateOusmane() {
     console.clear();
     console.log('\n');
     console.log(
-      blueGreen(
+      emeraldTeal(
         figlet.textSync(displayText, {
           font: 'ANSI Shadow',
           horizontalLayout: 'fitted'
@@ -39,11 +40,10 @@ async function animateOusmane() {
     await delay(250);
   }
 
-  // Affichage final du nom avec animation de couleurs
   console.clear();
   console.log('\n');
   console.log(
-    rainbowColors(
+    elegantGold(
       figlet.textSync('OUSMANE', {
         font: 'ANSI Shadow',
         horizontalLayout: 'full'
@@ -51,7 +51,6 @@ async function animateOusmane() {
     )
   );
 
-  // Informations du système
   const now = new Date();
   const formattedDate = now.toLocaleDateString('fr-FR', {
     weekday: 'long',
@@ -65,14 +64,12 @@ async function animateOusmane() {
     minute: '2-digit'
   });
 
-  // Affichage des informations en bas
   console.log('\n');
-  console.log(chalk.cyan('┌──────────────────────────────────────────────────────┐'));
-  console.log(chalk.cyan('│') + chalk.yellow(` 🕒  ${time} - ${formattedDate}`.padEnd(52)) + chalk.cyan('│'));
-  console.log(chalk.cyan('│') + chalk.green(` 💻  Terminal WSL actif et prêt!`.padEnd(52)) + chalk.cyan('│'));
-  console.log(chalk.cyan('└──────────────────────────────────────────────────────┘'));
+  console.log(chalk.hex('#1E90FF')('┌──────────────────────────────────────────────────────┐'));
+  console.log(chalk.hex('#1E90FF')('│') + chalk.hex('#FFD700')(` 🕒  ${time} - ${formattedDate}`.padEnd(52)) + chalk.hex('#1E90FF')('│'));
+  console.log(chalk.hex('#1E90FF')('│') + chalk.hex('#20B2AA')(` 💻  Terminal WSL actif et prêt!`.padEnd(52)) + chalk.hex('#1E90FF')('│'));
+  console.log(chalk.hex('#1E90FF')('└──────────────────────────────────────────────────────┘'));
   console.log('\n');
 }
 
-// Exécuter l'animation
 animateOusmane().catch(console.error);
