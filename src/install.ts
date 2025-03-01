@@ -7,7 +7,6 @@ function installStartupScript(): void {
   const bashrcPath = path.join(homeDir, '.bashrc');
   const scriptPath = path.resolve(__dirname, 'index.js');
 
-  // Vérifier si .bashrc existe
   if (!fs.existsSync(bashrcPath)) {
     console.log(chalk.yellow(`Le fichier ${bashrcPath} n'existe pas. Création...`));
     fs.writeFileSync(bashrcPath, '');
@@ -16,11 +15,11 @@ function installStartupScript(): void {
   const bashrcContent = fs.readFileSync(bashrcPath, 'utf-8');
 
   const scriptToAdd = `
-# Animation OUSMANE au démarrage du terminal WSL
-if [ -f "${scriptPath}" ]; then
-  node "${scriptPath}"
-fi
-`;
+  # Animation OUSMANE au démarrage du terminal WSL
+  if [ -f "${scriptPath}" ]; then
+    node "${scriptPath}"
+  fi
+  `;
 
   if (bashrcContent.includes(scriptPath)) {
     console.log(chalk.yellow('🔄 Le script est déjà configuré dans votre .bashrc'));
